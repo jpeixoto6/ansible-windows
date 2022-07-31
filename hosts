@@ -1,0 +1,33 @@
+[linux]
+server1  	ansible_host=10.1.8.104 ansible_password=Petrobras ansible_user=root
+server2         ansible_host=10.1.8.108 ansible_password=Petrobras ansible_user=root
+server3         ansible_host=10.1.8.113 ansible_password=Petrobras ansible_user=root
+server4         ansible_host=10.1.8.125 ansible_password=Petrobras ansible_user=root
+
+[windows:vars]
+ansible_connection=winrm
+ansible_winrm_transport=credssp
+ansible_winrm_server_cert_validation=ignore
+ansible_port=5986
+
+[control_nodes:vars]
+ansible_port=22
+ansible_ssh_user=ec2-user
+ansible_ssh_private_key_file="/tmp/aap2-ansible-workshops-rh1fb5/ansible_agnostic_deployer/ansible/workdir/aap2-ansible-workshops/provisioner/rh1fb5/rh1fb5-private.pem"
+
+[student1]
+student1-ansible-1 ansible_host=3.139.234.229
+student1-win1 ansible_host=18.116.86.150 ansible_user=Administrator  ansible_password="j2-iCQfgxHbvO$VsnnOE3V.WrWwHk)96"
+
+[all]
+student1-ansible-1
+student1-win1
+
+[attendance]
+[automation_hub]
+
+[control_nodes]
+student1-ansible-1
+
+[windows]
+student1-win1
