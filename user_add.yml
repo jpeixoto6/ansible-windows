@@ -2,3 +2,4 @@
   win_user_profile:
     username: devops_user
     state: present
+
