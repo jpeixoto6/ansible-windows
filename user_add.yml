@@ -1,5 +1,10 @@
-- name: Create a local profile for an account.
-  win_user_profile:
-    username: devops_user
-    state: present
+---
+- name: Windows server
+  hosts: windows
+
+  tasks:
+	- name: Create a local profile for an account.
+	  win_user_profile:
+	    username: devops_user
+	    state: present
 
