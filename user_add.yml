@@ -12,7 +12,7 @@
            - Users
 
 
-  - name: Create a local profile for an account.
-    win_user_profile:
-      username: bob
-      state: present
+    - name: Create a local profile for an account.
+      win_user_profile:
+        username: bob
+        state: present
