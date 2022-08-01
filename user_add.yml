@@ -16,3 +16,10 @@
       win_user_profile:
         username: bob
         state: present
+
+    - name: Create a new local group.
+      win_group:
+        name: developers
+        description: Developers Group
+        state: present
+
