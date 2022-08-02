@@ -6,7 +6,8 @@
     - name: Ensure user bob is present
       ansible.windows.win_user:
         name: bob
-        password: B0bP4ssw0rd
+#        password: B0bP4ssw0rd
+        password: "{{ user_password }}"
         state: present
         groups:
            - Users
@@ -14,7 +15,7 @@
 
     - name: Create a local profile for an account.
       win_user_profile:
-        username: bob
+        username: "{{ user_name}}"
         state: present
 
     - name: Create a new local group.

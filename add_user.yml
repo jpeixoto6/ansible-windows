@@ -5,7 +5,7 @@
   tasks:
     - name: Ensure pinky is present and always reset password
       community.general.ipa_user:
-        name: devops
+        name: "{{ user_name }}"
         state: present
         krbpasswordexpiration: 20221231235959
         givenname: deveops
