@@ -3,7 +3,7 @@
   hosts: windows
 
   tasks:
-    - name: Ensure pinky is present and always reset password
+    - name: Ensure user is present and always reset password
       community.general.ipa_user:
         name: "{{ user_name }}"
         state: present
@@ -19,6 +19,6 @@
         uidnumber: '1001'
         gidnumber: '100'
         homedirectory: /home/devops
-        ipa_host: master.petros-poc.com.example.com
+        ipa_host: 10.1.8.104
         ipa_user: admin
         ipa_pass: Petrobras
