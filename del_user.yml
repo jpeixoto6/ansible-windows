@@ -1,0 +1,13 @@
+---
+- name: IPA server user add
+  hosts: windows
+  gather_facts: false
+
+  tasks:
+    - name: Ensure user is absent
+      community.general.ipa_user:
+        name: devops
+        state: absent
+        ipa_host: master.petros-poc.com
+        ipa_user: admin
+        ipa_pass: Petrobras
