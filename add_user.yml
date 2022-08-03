@@ -1,6 +1,7 @@
 ---
 - name: IPA server user add
   hosts: windows
+  gather_facts: false
 
   tasks:
     - name: Ensure user is present and always reset password
@@ -19,6 +20,6 @@
         uidnumber: '1001'
         gidnumber: '100'
         homedirectory: /home/devops
-        ipa_host: 10.1.8.104
+        ipa_host: master.petros-poc.com
         ipa_user: admin
         ipa_pass: Petrobras
