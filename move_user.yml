@@ -1,0 +1,15 @@
+---
+- name: IPA server user move to another department
+  hosts: windows
+  gather_facts: false
+
+  tasks:
+    - name: Find groups in which user is member
+      command:  ipa group-find --users=devops --raw 
+      register: result
+
+    - name: print groups
+      debug:
+        var: result
+
+       

@@ -3,7 +3,10 @@
   hosts: windows
  
   tasks:
-    - name: Get disk facts
-      win_disk_facts:
+    - name: print vars
+      debug:
+        msg: "{{user_name}} senha: {{user_password}} grupos: {{user_member_groups}}"
+
+
  
 
