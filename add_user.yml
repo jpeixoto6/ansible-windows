@@ -7,19 +7,31 @@
     - name: Ensure user is present and always reset password
       community.general.ipa_user:
         name: "{{ user_name }}"
+        password: "{{ user_password }}"
         state: present
         krbpasswordexpiration: 20221231235959
-        givenname: deveops
+        givenname: "{{ user_name }}"
         sn: Acme
         mail:
-        - devops@acme.com
+        - "{{ user_name }}@acme.com"
         telephonenumber:
         - '+552125123456'
         sshpubkey:
         - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCj26UxZ6EfxBWO0PhsTaC/P182apTMqls2mNjyVM+MOBOucEh7KsCWqMlnWvVto/GWy8oDwksNgNFnaffr7XyOXODXQgTcfqN9w1hD6wsZNiTIOHza4/NgV6QvFtZuTETTMikVyKUwf76Va9labEkEwaWwHoEto8vCY5+lrS5Gw9+peNG8+0DvDlh2suhSeX6Adv9CPW82nEwtkbw2JXIpzQBtEQBYPpX8qJOaz+6vtxRRPsPmRsF1PCaQkiS2+hIL7lk/l9l5Xfe4u9CGP+er1ClaqMfiqGPl7lLXmOnFsEol3aJ6sOSOIqWIgj2h+U9v/WGqvdZQY0P92LR3nhaFaiC5+1FlZEWsIaoHD7URBhk3cK4+Yc8Sk2nDARyWH8k15IQc3VRYpz9oIOT/SNbg2hX62VtaGd6sJQhsfX4WIm33yaxklZQyHVZYd1coamQIRomZfZzbujuvtGrTh3AkesmIDd5cFpK4F8UYHaW5p909EHY6GpRFRdPwf9O6RHs= root@dell-r640-012.dsal.lab.eng.rdu2.redhat.com
-        uidnumber: '1001'
-        gidnumber: '100'
-        homedirectory: /home/devops
+        homedirectory: "/home/{{ user_name }}"
         ipa_host: master.petros-poc.com
         ipa_user: admin
         ipa_pass: Petrobras
+
+    - name: Ensure that new starter named john is member of the group, without removing other members
+      community.general.ipa_group:
+         name: "{{ item }}"
+         user:
+         - "{{ user_name }}"
+         append: yes
+         state: present
+         ipa_host: master.petros-poc.com
+         ipa_user: admin
+         ipa_pass: Petrobras
+      loop: "{{ user_member_groups }}"
+        
