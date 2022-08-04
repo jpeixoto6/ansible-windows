@@ -5,8 +5,5 @@
   tasks:
     - name: print vars
       debug:
-        msg: "{{user_name}} senha: {{user_password}} grupos: {{user_member_groups}}"
-
-
- 
+        msg: "Usuario: {{user_name}}, senha: {{user_password}}, grupos: {{user_member_groups}}"
 

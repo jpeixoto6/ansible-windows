@@ -1,0 +1,9 @@
+---
+- name: Windows server
+  hosts: windows
+ 
+  tasks:
+    - name: print vars
+      debug:
+        msg: "Usuario: {{user_name}}, grupos: {{user_member_groups}}"
+
