@@ -4,7 +4,7 @@
   gather_facts: false
 
   tasks:
-    - name: Ensure user is present and always reset password
+    - name: Add user
       community.general.ipa_user:
         name: "{{ user_name }}"
         password: "{{ user_password }}"
@@ -23,7 +23,7 @@
         ipa_user: admin
         ipa_pass: Petrobras
 
-    - name: Ensure that new starter named john is member of the group, without removing other members
+    - name: Ensure that new starter named user_name is member of the group, without removing other members
       community.general.ipa_group:
          name: "{{ item }}"
          user:
