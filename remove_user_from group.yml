@@ -1,6 +1,6 @@
 ---
 - name: Get IPA users groups
-  hosts: teste
+  hosts: windows
   gather_facts: false
 
   vars:
