@@ -1,0 +1,17 @@
+---
+- name: IPA server user add
+  hosts: windows
+  gather_facts: false
+
+  tasks:
+    - name: Ensure that new starter named user_name is member of the group, without removing other members
+      community.general.ipa_group:
+         name: "{{ item }}"
+         user:
+         - "{{ user_name }}"
+         append: yes
+         state: present
+         ipa_host: master.petros-poc.com
+         ipa_user: admin
+         ipa_pass: Petrobras
+      loop: "{{ user_member_groups }}"
