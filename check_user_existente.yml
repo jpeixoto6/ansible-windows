@@ -1,0 +1,47 @@
+---
+- name: Verifica se ja existe usuario - falha em caso de existir
+  hosts: windows
+  gather_facts: false
+
+  tasks:
+    - name: IPA server login
+      uri:
+        url: "https://master.petros-poc.com/ipa/session/login_password"
+        method: POST
+        headers:
+          Content-Type: "application/x-www-form-urlencoded"
+          Referer: "https://master.petros-poc.com/ipa"
+          Accept: "text/plain"
+        validate_certs: no
+        body_format: form-urlencoded
+        body:
+          user=admin&password=Petrobras
+      register: results
+
+    -  name: debug
+       debug:
+         var: results.cookies.ipa_session
+
+    - name: IPA server get user
+      uri:
+        url: "https://master.petros-poc.com/ipa/session/json"
+        method: POST
+        headers:
+          Content-Type: "application/json"
+          Referer: "https://master.petros-poc.com/ipa"
+          Accept: "application/json"
+          Cookie: "ipa_session={{ results.cookies.ipa_session }}"
+        validate_certs: no
+        body_format: json
+        body:
+          {"method":"group_find", "params":[[],{"user":"{{ user_name}}","all": false}]}
+      register: results
+
+    -  name: debug
+       debug:
+         var: results.json.result.count
+
+    - name: Falha em caso de usuario existente
+      fail:
+        msg: Usuario ja existente
+      when: results.json.result.count !=  0
