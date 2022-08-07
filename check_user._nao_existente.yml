@@ -41,7 +41,7 @@
        debug:
          var: results.json.result.count
 
-    - name: Falha em caso de usuario existente
+    - name: Falha em caso de usuario nao existente
       fail:
-        msg: Usuario ja existente
+        msg: Usuario nao existe
       when: results.json.result.count ==  0
