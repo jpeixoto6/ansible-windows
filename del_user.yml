@@ -6,7 +6,7 @@
   tasks:
     - name: Ensure user is absent
       community.general.ipa_user:
-        name: devops
+        name: "{{ user_name }}"
         state: absent
         ipa_host: master.petros-poc.com
         ipa_user: admin
