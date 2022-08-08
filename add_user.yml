@@ -11,6 +11,7 @@
         state: present
         krbpasswordexpiration: 20221231235959
         givenname: "{{ user_name }}"
+        uidnumber: "{{ user_id }}"
         sn: Acme
         mail:
         - "{{ user_name }}@acme.com"
