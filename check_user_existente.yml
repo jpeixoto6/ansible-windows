@@ -34,7 +34,7 @@
         validate_certs: no
         body_format: json
         body:
-          {"method":"group_find", "params":[[],{"user":"{{ user_name}}","all": false}]}
+          {"method":"user_find", "params":[[],{"uid":"{{ user_name}}","all": false}]}
       register: results
 
     -  name: debug

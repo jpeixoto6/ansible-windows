@@ -1,5 +1,5 @@
 ---
-- name: Verifica se ja nao existe usuario - falha em caso de nao existir
+- name: Verifica se ja existe usuario - falha em caso de existir
   hosts: windows
   gather_facts: false
 
@@ -34,14 +34,14 @@
         validate_certs: no
         body_format: json
         body:
-          {"method":"user_find", "params":[[],{"uid":"{{ user_name}}","all": false}]}
+          {"method":"user_find", "params":[[],{"uidnumber":"{{ user_id}}","all": false}]}
       register: results
 
     -  name: debug
        debug:
          var: results.json.result.count
 
-    - name: Falha em caso de usuario nao existente
+    - name: Falha em caso de usuario existente
       fail:
-        msg: Usuario nao existe
-      when: results.json.result.count ==  0
+        msg: Usuario ja existente
+      when: results.json.result.count !=  0
