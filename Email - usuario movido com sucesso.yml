@@ -15,5 +15,5 @@
          to: Joao Peixoto <jpeixoto.redhat@gmail.com>
          subject: "Usuário {{ user_name }} movido com sucesso"
          body: "Usuário {{ user_name}} com user_id {{ user_id}} foi movido com sucesso.\n \n
-                JOB: {{ job.id }} \n User: {{ user_name }} \n ID: {{ user_id }} \n Email: {{ user_name }}@petros.com.br\n  Grupos: {{user_member_groups}}"
+                User: {{ user_name }} \n ID: {{ user_id }} \n Email: {{ user_name }}@petros.com.br\n  Grupos: {{user_member_groups}}"
       delegate_to: localhost

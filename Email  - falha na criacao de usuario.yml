@@ -15,5 +15,5 @@
          to: Joao Peixoto <jpeixoto.redhat@gmail.com>
          subject: "Falha ao criar usuario {{ user_name }}"
          body: "Falha: Usuario {{ user_name}} com user_id {{ user_id}} ja existe.\n \n
-                JOB: {{ job.id }} \n User: {{ user_name }}"
+                User: {{ user_name }}"
       delegate_to: localhost
