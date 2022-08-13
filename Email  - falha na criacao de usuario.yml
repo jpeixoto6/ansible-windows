@@ -1,0 +1,19 @@
+---
+- name: Envio de email de erro quando usuario ja existe
+  hosts: windows
+  gather_facts: false
+
+  tasks:
+    - name: Sending an e-mail using AWS SMTP servers
+      community.general.mail:
+         host: email-smtp.us-east-1.amazonaws.com
+         port: 587
+         username: "{{ smtp_username }}" 
+         password: "{{ smtp_password }}"
+         secure: starttls
+         sender: Joao Peixoto <jpeixoto.redhat@gmail.com>
+         to: Joao Peixoto <jpeixoto.redhat@gmail.com>
+         subject: "Falha ao criar usuario {{ user_name }}"
+         body: "Falha: Usuario {{ user_name}} com user_id {{ user_id}} ja existe.\n \n
+                JOB: {{ job.id }} \n User: {{ user_name }}"
+      delegate_to: localhost

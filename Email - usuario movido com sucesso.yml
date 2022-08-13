@@ -1,0 +1,19 @@
+---
+- name: Envio de email quando usuario foi movido com sucesso
+  hosts: windows
+  gather_facts: false
+
+  tasks:
+    - name: Sending an e-mail using AWS SMTP servers
+      community.general.mail:
+         host: email-smtp.us-east-1.amazonaws.com
+         port: 587
+         username: "{{ smtp_username }}" 
+         password: "{{ smtp_password }}"
+         secure: starttls
+         sender: Joao Peixoto <jpeixoto.redhat@gmail.com>
+         to: Joao Peixoto <jpeixoto.redhat@gmail.com>
+         subject: "Usuário {{ user_name }} movido com sucesso"
+         body: "Usuário {{ user_name}} com user_id {{ user_id}} foi movido com sucesso.\n \n
+                JOB: {{ job.id }} \n User: {{ user_name }} \n ID: {{ user_id }} \n Email: {{ user_name }}@petros.com.br\n  Grupos: {{user_member_groups}}"
+      delegate_to: localhost
