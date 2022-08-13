@@ -14,6 +14,6 @@
          sender: Joao Peixoto <jpeixoto.redhat@gmail.com>
          to: Joao Peixoto <jpeixoto.redhat@gmail.com>
          subject: "Usuário {{ user_name }} removido com sucesso"
-         body: "Usuário {{ user_name}} com user_id {{ user_id}} foi removido com sucesso.\n \n
+         body: "Usuário {{ user_name}} foi removido com sucesso.\n \n
                 User: {{ user_name }}"
       delegate_to: localhost
