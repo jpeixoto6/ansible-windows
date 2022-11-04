@@ -3,14 +3,14 @@
   hosts: windows
 
   tasks:
-  -  name :  Instala todas as atualizacoes de seguranca, cri≠ticas e rollup sem uma tarefa agenda
+  -  name :  Instala todas as atualizacoes de seguranca, criticas e rollup sem uma tarefa agenda
      win_updates : 
       category_names : 
         -  SecurityUpdates 
         -  CriticalUpdates 
         -  UpdateRollups
 
-  -  name :  Instalar somente atualizacoes de segurancßa como uma tarefa agendada para Server 212
+  -  name :  Instalar somente atualizacoes de seguranca como uma tarefa agendada para Server 212
      win_updates : 
       category_names :  SecurityUpdates 
       use_scheduled_task :  yes
@@ -26,7 +26,7 @@
       -  SecurityUpdates 
       reboot :  no
 
-  -  name :  instale apenas atualizacoes espec√≠ficas com base nos n√∫meros da KB
+  -  name :  instale apenas atualizacoes especificas com base nos n√∫meros da KB
      win_updates : 
       category_name : 
       -  SecurityUpdates 
