@@ -1,0 +1,35 @@
+---
+- name: Windows server
+  hosts: windows
+
+  tasks:
+  -  name :  Instala todas as atualizacoes de seguranca, cri≠ticas e rollup sem uma tarefa agenda
+     win_updates : 
+      category_names : 
+        -  SecurityUpdates 
+        -  CriticalUpdates 
+        -  UpdateRollups
+
+  -  name :  Instalar somente atualizacoes de segurancßa como uma tarefa agendada para Server 212
+     win_updates : 
+      category_names :  SecurityUpdates 
+      use_scheduled_task :  yes
+
+  -  name :  somente pesquisa, retorna a lista de atualizacoes encontradas (se houver), fa√ßa login em C:\ansible_instala.txt
+     win_updates : 
+       category_names :  SecurityUpdates 
+       state :  searched 
+
+  -  name :  Instale todas as atualizacoes de seguranca
+     win_updates : 
+      category_names : 
+      -  SecurityUpdates 
+      reboot :  no
+
+  -  name :  instale apenas atualizacoes espec√≠ficas com base nos n√∫meros da KB
+     win_updates : 
+      category_name : 
+      -  SecurityUpdates 
+      whitelist : 
+      -  KB4056892 
+      -  KB4073117
