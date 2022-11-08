@@ -26,10 +26,3 @@
       -  SecurityUpdates 
       reboot :  no
 
-  -  name :  instale apenas atualizacoes especificas com base nos números da KB
-     win_updates : 
-      category_name : 
-      -  SecurityUpdates 
-      whitelist : 
-      -  KB4056892 
-      -  KB4073117
