@@ -1,0 +1,12 @@
+---
+- name: Windows server
+  hosts: windows
+
+  tasks:
+
+  - name: Change Windows Registry 
+    ansible.windows.win_regedit:
+      path: {{ reg_path }}
+      name: {{ reg_name }}
+      data: {{ reg_data }}
+      type: {{ reg_type }}
