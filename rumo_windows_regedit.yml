@@ -8,5 +8,5 @@
     ansible.windows.win_regedit:
       path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\Explorer
       name: NoDriveTypeAutoRun
-      data: 000000ff
+      data: 0x000000ff
       type: dword
