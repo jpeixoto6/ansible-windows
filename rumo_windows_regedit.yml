@@ -4,7 +4,7 @@
 
   tasks:
 
-i - name: Change Windows Registry 
+  - name: Change Windows Registry 
     ansible.windows.win_regedit:
       path: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\Explorer
       name: NoDriveTypeAutoRun
