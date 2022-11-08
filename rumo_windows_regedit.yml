@@ -6,7 +6,7 @@
 
   - name: Change Windows Registry 
     ansible.windows.win_regedit:
-      path: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\Explorer
+      path: HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\Explorer
       name: NoDriveTypeAutoRun
       data: 000000ff
       type: dword
