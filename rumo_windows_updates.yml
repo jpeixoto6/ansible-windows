@@ -18,7 +18,8 @@
   -  name :  somente pesquisa, retorna a lista de atualizacoes encontradas (se houver), faça login em C:\ansible_instala.txt
      win_updates : 
        category_names :  SecurityUpdates 
-       state :  searched 
+       state :  searched
+       log_path: C:\ansible_instala.txt
 
   -  name :  Instale todas as atualizacoes de seguranca
      win_updates : 
