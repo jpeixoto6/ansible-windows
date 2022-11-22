@@ -3,20 +3,13 @@
   hosts: windows
 
   tasks:
-  -  name :  Instala todas as atualizacoes de seguranca, criticas e rollup sem uma tarefa agenda
-     win_updates : 
-      category_names : 
-        -  SecurityUpdates 
-        -  CriticalUpdates 
-        -  UpdateRollups
-
   -  name :  somente pesquisa, retorna a lista de atualizacoes encontradas (se houver), faça login em C:\ansible_instala.txt
      win_updates : 
        category_names :  SecurityUpdates 
        state :  searched
        log_path: C:\ansible_instala.txt
 
-  -  name :  Instale todas as atualizacoes de seguranca
+  -  name :  Instala todas as atualizacoes de seguranca, criticas e rollup sem uma tarefa agenda
      win_updates : 
       category_names : 
         -  SecurityUpdates 
