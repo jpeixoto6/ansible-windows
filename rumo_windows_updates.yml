@@ -19,6 +19,8 @@
   -  name :  Instale todas as atualizacoes de seguranca
      win_updates : 
       category_names : 
-      -  SecurityUpdates 
+        -  SecurityUpdates 
+        -  CriticalUpdates 
+        -  UpdateRollups
       reboot :  no
 
