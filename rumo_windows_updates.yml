@@ -10,11 +10,6 @@
         -  CriticalUpdates 
         -  UpdateRollups
 
-  -  name :  Instalar somente atualizacoes de seguranca como uma tarefa agendada para Server 212
-     win_updates : 
-      category_names :  SecurityUpdates 
-      use_scheduled_task :  yes
-
   -  name :  somente pesquisa, retorna a lista de atualizacoes encontradas (se houver), faça login em C:\ansible_instala.txt
      win_updates : 
        category_names :  SecurityUpdates 
